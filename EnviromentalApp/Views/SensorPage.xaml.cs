@@ -5,6 +5,12 @@ public partial class SensorPage : ContentPage
 {
     string _fileName = Path.Combine(FileSystem.AppDataDirectory, "notes.txt");
 
+    
+public string ItemId
+{
+    set { LoadSensor(value); }
+}
+
 public SensorPage()
 {
     InitializeComponent();
@@ -17,19 +23,19 @@ public SensorPage()
 
 private async void SaveButton_Clicked(object sender, EventArgs e)
 {
-    if (BindingContext is Models.Sensor note)
+    if (BindingContext is Models.Note note)
         File.WriteAllText(note.Filename, TextEditor.Text);
-
+        
     await Shell.Current.GoToAsync("..");
 }
 
 private async void DeleteButton_Clicked(object sender, EventArgs e)
 {
-    if (BindingContext is Models.Sensor sensor)
+    if (BindingContext is Models.Note note)
     {
         // Delete the file.
-        if (File.Exists(sensor.Filename))
-            File.Delete(sensor.Filename);
+        if (File.Exists(note.Filename))
+            File.Delete(note.Filename);
     }
 
     await Shell.Current.GoToAsync("..");
@@ -37,22 +43,16 @@ private async void DeleteButton_Clicked(object sender, EventArgs e)
 
 private void LoadSensor(string fileName)
 {
-    Models.Sensor sensorModel = new Models.Sensor();
-    sensorModel.Filename = fileName;
+    Models.Note noteModel = new Models.Note();
+    noteModel.Filename = fileName;
 
     if (File.Exists(fileName))
     {
-        sensorModel.Date = File.GetCreationTime(fileName);
-        sensorModel.Text = File.ReadAllText(fileName);
+        noteModel.Date = File.GetCreationTime(fileName);
+        noteModel.Text = File.ReadAllText(fileName);
     }
 
-    BindingContext = sensorModel;
+    BindingContext = noteModel;
 }
-
-public string ItemId
-{
-    set { LoadSensor(value); }
-}
-
 
 }

@@ -1,17 +1,17 @@
 namespace EnviromentalApp.Views;
 
-public partial class AllSensorsPage : ContentPage
+public partial class AllNotesPage : ContentPage
 {
-    public AllSensorsPage()
+    public AllNotesPage()
     {
         InitializeComponent();
 
-        BindingContext = new Models.AllSensors();
+        BindingContext = new Models.AllNotes();
     }
 
     protected override void OnAppearing()
     {
-        ((Models.AllSensors)BindingContext).LoadSensors();
+        ((Models.AllNotes)BindingContext).LoadNotes();
     }
 
     private async void Add_Clicked(object sender, EventArgs e)
@@ -24,7 +24,7 @@ public partial class AllSensorsPage : ContentPage
         if (e.CurrentSelection.Count != 0)
         {
             // Get the note model
-            var note = (Models.Sensor)e.CurrentSelection[0];
+            var note = (Models.Note)e.CurrentSelection[0];
 
             // Should navigate to "NotePage?ItemId=path\on\\device\XYZ.notes.txt"
             await Shell.Current.GoToAsync($"{nameof(SensorPage)}?{nameof(SensorPage.ItemId)}={note.Filename}");

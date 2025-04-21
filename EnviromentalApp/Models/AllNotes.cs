@@ -2,28 +2,28 @@ using System.Collections.ObjectModel;
 
 namespace EnviromentalApp.Models;
 
-internal class AllSensors
+internal class AllNotes
 {
-    public ObservableCollection<Sensor> Sensors { get; set; } = new ObservableCollection<Sensor>();
+    public ObservableCollection<Note> Notes { get; set; } = new ObservableCollection<Note>();
 
-    public AllSensors() =>
-        LoadSensors();
+    public AllNotes() =>
+        LoadNotes();
 
-    public void LoadSensors()
+    public void LoadNotes()
     {
-        Sensors.Clear();
+        Notes.Clear();
 
         // Get the folder where the notes are stored.
         string appDataPath = FileSystem.AppDataDirectory;
 
         // Use Linq extensions to load the \*.notes.txt files.
-        IEnumerable<Sensor> sensors = Directory
+        IEnumerable<Note> notes = Directory
 
                                     // Select the file names from the directory
                                     .EnumerateFiles(appDataPath, "*.notes.txt")
 
                                     // Each file name is used to create a new Note
-                                    .Select(filename => new Sensor()
+                                    .Select(filename => new Note()
                                     {
                                         Filename = filename,
                                         Text = File.ReadAllText(filename),
@@ -34,7 +34,7 @@ internal class AllSensors
                                     .OrderBy(note => note.Date);
 
         // Add each note into the ObservableCollection
-        foreach (Sensor sensor in sensors)
-            Sensors.Add(sensor);
+        foreach (Note note in notes)
+            Notes.Add(note);
     }
 }

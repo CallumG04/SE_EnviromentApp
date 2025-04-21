@@ -1,6 +1,6 @@
 namespace EnviromentalApp.Models;
 
-internal class Sensor
+internal class Note
 {
     public string? Filename { get; set; }
     public string? Text { get; set; }
