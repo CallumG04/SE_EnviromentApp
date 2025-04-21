@@ -2,10 +2,13 @@
 
 public partial class App : Application
 {
-	public App()
-	{
-		InitializeComponent();
+   public App()
+    {
+        InitializeComponent();
 
-		MainPage = new AppShell();
-	}
+        Routing.RegisterRoute(nameof(Views.SensorPage), typeof(Views.SensorPage));
+
+        MainPage = new AppShell();
+
+    }
 }

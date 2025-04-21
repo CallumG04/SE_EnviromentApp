@@ -1,29 +1,58 @@
 namespace EnviromentalApp.Views;
 
+[QueryProperty(nameof(ItemId), nameof(ItemId))]
 public partial class SensorPage : ContentPage
 {
     string _fileName = Path.Combine(FileSystem.AppDataDirectory, "notes.txt");
 
-    public SensorPage()
-    {
-        InitializeComponent();
+public SensorPage()
+{
+    InitializeComponent();
 
-        if (File.Exists(_fileName))
-            TextEditor.Text = File.ReadAllText(_fileName);
-    }
+    string appDataPath = FileSystem.AppDataDirectory;
+    string randomFileName = $"{Path.GetRandomFileName()}.notes.txt";
 
-    private void SaveButton_Clicked(object sender, EventArgs e)
-    {
-        // Save the file.
-        File.WriteAllText(_fileName, TextEditor.Text);
-    }
+    LoadSensor(Path.Combine(appDataPath, randomFileName));
+}
 
-    private void DeleteButton_Clicked(object sender, EventArgs e)
+private async void SaveButton_Clicked(object sender, EventArgs e)
+{
+    if (BindingContext is Models.Sensor note)
+        File.WriteAllText(note.Filename, TextEditor.Text);
+
+    await Shell.Current.GoToAsync("..");
+}
+
+private async void DeleteButton_Clicked(object sender, EventArgs e)
+{
+    if (BindingContext is Models.Sensor sensor)
     {
         // Delete the file.
-        if (File.Exists(_fileName))
-            File.Delete(_fileName);
+        if (File.Exists(sensor.Filename))
+            File.Delete(sensor.Filename);
+    }
 
-        TextEditor.Text = string.Empty;
-    }
+    await Shell.Current.GoToAsync("..");
+}
+
+private void LoadSensor(string fileName)
+{
+    Models.Sensor sensorModel = new Models.Sensor();
+    sensorModel.Filename = fileName;
+
+    if (File.Exists(fileName))
+    {
+        sensorModel.Date = File.GetCreationTime(fileName);
+        sensorModel.Text = File.ReadAllText(fileName);
+    }
+
+    BindingContext = sensorModel;
+}
+
+public string ItemId
+{
+    set { LoadSensor(value); }
+}
+
+
 }
