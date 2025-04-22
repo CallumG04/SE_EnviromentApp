@@ -1,4 +1,12 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using System.Reflection;
+using EnviromentalApp.ViewModels;
+using EnviromentalApp.Data;
+using EnviromentalApp.Views;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Configuration.Json;
+using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
+
 
 namespace EnviromentalApp;
 
@@ -14,6 +22,26 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
+
+			var a = Assembly.GetExecutingAssembly();
+			using var stream = a.GetManifestResourceStream("EnviromentalApp.appsettings.json");
+				
+			var config = new ConfigurationBuilder()
+				.AddJsonStream(stream)
+				.Build();
+				
+			builder.Configuration.AddConfiguration(config);
+
+			var connectionString = builder.Configuration.GetConnectionString("DevelopmentConnection");
+			builder.Services.AddDbContext<NotesDbContext>(options => options.UseSqlServer(connectionString));
+
+			builder.Services.AddSingleton<NotesViewModel>();
+			builder.Services.AddTransient<NoteViewModel>();
+
+			builder.Services.AddSingleton<AllNotesPage>();
+			builder.Services.AddTransient<NotePage>();
+
+
 
 #if DEBUG
 		builder.Logging.AddDebug();
