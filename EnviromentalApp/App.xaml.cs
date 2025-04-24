@@ -6,7 +6,9 @@ public partial class App : Application
     {
         InitializeComponent();
 
-        Routing.RegisterRoute(nameof(Views.NotePage), typeof(Views.NotePage));
+        Routing.RegisterRoute(nameof(Views.AllNotesPage), typeof(Views.AllNotesPage));
+        Routing.RegisterRoute(nameof(Views.AllSensorsPage), typeof(Views.AllSensorsPage));
+        Routing.RegisterRoute(nameof(Views.SensorPage), typeof(Views.SensorPage));
 
         MainPage = new AppShell();
 
