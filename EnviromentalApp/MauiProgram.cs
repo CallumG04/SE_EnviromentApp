@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Configuration.Json;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
+using EnviromentalApp.Services;
 
 
 namespace EnviromentalApp;
@@ -40,6 +41,11 @@ public static class MauiProgram
 
 			builder.Services.AddSingleton<AllNotesPage>();
 			builder.Services.AddTransient<NotePage>();
+
+			builder.Services.AddSingleton<SensorService>();
+			builder.Services.AddTransient<SensorViewModel>();
+			builder.Services.AddTransient<SensorPage>();
+
 
 
 
