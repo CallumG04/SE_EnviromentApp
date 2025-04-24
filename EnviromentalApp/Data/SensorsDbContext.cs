@@ -9,8 +9,7 @@ public class SensorsDbContext : DbContext
 
     public SensorsDbContext()
     { }
-    public SensorsDbContext(DbContextOptions options) : base(options)
-    { }
+    public SensorsDbContext(DbContextOptions<SensorsDbContext> options) : base(options) { }
 
     public DbSet<Sensor> Sensors { get; set; }
 
