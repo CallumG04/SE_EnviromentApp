@@ -1,9 +1,9 @@
 using EnviromentalApp.ViewModels;
 namespace EnviromentalApp.Views;
     
-public partial class NotePage : ContentPage
+public partial class SensorPage : ContentPage
 {
-    public NotePage(NoteViewModel viewModel)
+    public SensorPage(SensorViewModel viewModel)
     {
         this.BindingContext = viewModel;   
         InitializeComponent();
