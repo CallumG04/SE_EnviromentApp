@@ -9,8 +9,8 @@ public class UsersDbContext : DbContext
 
     public UsersDbContext()
     { }
-    public UsersDbContext(DbContextOptions options) : base(options)
-    { }
+    public UsersDbContext(DbContextOptions<UsersDbContext> options) : base(options) { }
+
 
     public DbSet<User> Users { get; set; }
 
