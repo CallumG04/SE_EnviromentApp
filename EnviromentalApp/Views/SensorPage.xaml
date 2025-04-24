@@ -3,27 +3,21 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:EnviromentalApp.ViewModels"
              x:Class="EnviromentalApp.Views.SensorPage"
-             Title="Sensors">
+             Title="Sensor">
+    <VerticalStackLayout Spacing="10" Margin="5">
+        <Editor x:Name="TextEditor"
+                Placeholder="Enter sensor type"
+                Text="{Binding Type}"
+                HeightRequest="100" />
     
-    <VerticalStackLayout Padding="10" Spacing="10">
-        
-        <CollectionView x:Name="sensorCollection"
-                        ItemsSource="{Binding Sensors}"
-                        SelectionMode="None">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Frame BorderColor="LightGray" Padding="10" CornerRadius="8">
-                        <VerticalStackLayout>
-                            <Label Text="{Binding Type}" FontAttributes="Bold"/>
-                            <Label Text="{Binding Position}" FontSize="12"/>
-                            <Label Text="{Binding Status}" FontSize="12" TextColor="Gray"/>
-                        </VerticalStackLayout>
-                    </Frame>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-
-        <Button Text="Refresh Sensors"
-                Command="{Binding RefreshCommand}" />
+        <Grid ColumnDefinitions="*,*" ColumnSpacing="4">
+            <Button Text="Save"
+                    Command="{Binding SaveCommand}"/>
+    
+            <Button Grid.Column="1"
+                    Text="Delete"
+                    Command="{Binding DeleteCommand}"/>
+    
+        </Grid>
     </VerticalStackLayout>
 </ContentPage>

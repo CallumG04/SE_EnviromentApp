@@ -1,6 +1,7 @@
 using EnviromentalApp.Models;
 using System.Collections.Generic;
 
+/*
 namespace EnviromentalApp.Services
 {
     public class SensorService
@@ -34,3 +35,4 @@ namespace EnviromentalApp.Services
         }
     }
 }
+*/

@@ -1,50 +1,112 @@
-using System.Collections.ObjectModel;
-using System.Threading.Tasks;
+using EnviromentalApp.Data;
 using EnviromentalApp.Models;
-using EnviromentalApp.Services;
-using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.ComponentModel;
+using System.Windows.Input;
 
 namespace EnviromentalApp.ViewModels;
 
-public partial class SensorViewModel : ObservableObject
+public partial class SensorViewModel : ObservableObject, IQueryAttributable
 {
-    private readonly SensorService _sensorService;
+    private Models.Sensor _sensor;
 
-    [ObservableProperty]
-    private ObservableCollection<Sensor> sensors;
+    public int sensorId => _sensor.sensorId;
 
-    public SensorViewModel(SensorService sensorService)
+    public DateTime Date => _sensor.Date;
+    public string Type
     {
-        _sensorService = sensorService;
-        Sensors = new ObservableCollection<Sensor>();
-    }
-
-    [RelayCommand]
-    public async Task LoadSensors()
-    {
-        // Simulating delay to mimic async DB/API call
-        await Task.Delay(500);
-
-        var data = _sensorService.GetSensors();
-        Sensors.Clear();
-
-        foreach (var sensor in data)
+        get => _sensor.Type;
+        set
         {
-            Sensors.Add(sensor);
+            if (_sensor.Type != value)
+            {
+                _sensor.Type = value;
+                OnPropertyChanged();
+            }
         }
     }
 
-    [RelayCommand]
-    public void Refresh()
+    public string Position
     {
-        // For now, just reload dummy data
-        var data = _sensorService.GetSensors();
-        Sensors.Clear();
-
-        foreach (var sensor in data)
+        get => _sensor.Position;
+        set
         {
-            Sensors.Add(sensor);
-        }
-    }
+            if (_sensor.Position != value)
+            {
+                _sensor.Position = value;
+                OnPropertyChanged();
+            }
+        }
+    }
+
+    public string Status
+    {
+        get => _sensor.Status;
+        set
+        {
+            if (_sensor.Status != value)
+            {
+                _sensor.Status = value;
+                OnPropertyChanged();
+            }
+        }
+    }
+
+    private SensorsDbContext _context;
+    
+    public SensorViewModel(SensorsDbContext sensorsDbContext)
+    {
+        _context = sensorsDbContext;
+        _sensor = new Sensor();
+    }
+    public SensorViewModel(SensorsDbContext sensorsDbContext, Sensor sensor)
+    {
+        _sensor = sensor;
+        _context = sensorsDbContext;
+    }
+
+
+[RelayCommand]
+private async Task Save()
+{
+    _sensor.Date = DateTime.Now;
+    if (_sensor.sensorId == 0)
+    {
+        _context.Sensors.Add(_sensor);
+    }
+    _context.SaveChanges();
+    await Shell.Current.GoToAsync($"..?saved={_sensor.sensorId}");
+}
+
+[RelayCommand]
+private async Task Delete()
+{
+    _context.Remove(_sensor);
+    _context.SaveChanges();
+    await Shell.Current.GoToAsync($"..?deleted={_sensor.sensorId}");
+}
+
+void IQueryAttributable.ApplyQueryAttributes(IDictionary<string, object> query)
+{
+    if (query.ContainsKey("load"))
+    {
+        _sensor = _context.Sensors.Single(s => s.sensorId == int.Parse(query["load"].ToString()));
+        RefreshProperties();
+    }
+}
+
+public void Reload()
+{
+    _context.Entry(_sensor).Reload();
+    RefreshProperties();
+}
+
+
+    private void RefreshProperties()
+    {
+        OnPropertyChanged(nameof(Date));
+        OnPropertyChanged(nameof(Type));
+        OnPropertyChanged(nameof(Position));
+        OnPropertyChanged(nameof(Status));
+    }
 }

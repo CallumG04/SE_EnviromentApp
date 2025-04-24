@@ -1,5 +1,4 @@
 using EnviromentalApp.ViewModels;
-using EnviromentalApp.Models;
 namespace EnviromentalApp.Views;
     
 public partial class SensorPage : ContentPage
