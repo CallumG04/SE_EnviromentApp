@@ -34,12 +34,19 @@ public static class MauiProgram
 
 			var connectionString = builder.Configuration.GetConnectionString("DevelopmentConnection");
 			builder.Services.AddDbContext<SensorsDbContext>(options => options.UseSqlServer(connectionString));
+			builder.Services.AddDbContext<UsersDbContext>(options => options.UseSqlServer(connectionString));
 
 		        builder.Services.AddSingleton<SensorsViewModel>();
 				builder.Services.AddTransient<SensorViewModel>();
 
 				builder.Services.AddSingleton<AllSensorsPage>();
 				builder.Services.AddTransient<SensorPage>();
+
+				builder.Services.AddSingleton<ManageUsersViewModel>();
+				builder.Services.AddTransient<ManageUserViewModel>();
+
+				builder.Services.AddSingleton<AllUsersPage>();
+				builder.Services.AddTransient<ManageUserPage>();
     
 
 
