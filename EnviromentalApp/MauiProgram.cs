@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration.Json;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace EnviromentalApp;
 
 public static class MauiProgram
@@ -34,13 +35,6 @@ public static class MauiProgram
 			var connectionString = builder.Configuration.GetConnectionString("DevelopmentConnection");
 			//builder.Services.AddDbContext<NotesDbContext>(options => options.UseSqlServer(connectionString));
 			builder.Services.AddDbContext<SensorsDbContext>(options => options.UseSqlServer(connectionString));
-
-			builder.Services.AddSingleton<SensorsViewModel>();
-			builder.Services.AddTransient<SensorViewModel>();
-
-			builder.Services.AddSingleton<AllSensorsPage>();
-			builder.Services.AddTransient<SensorPage>();
-
 
 
 
