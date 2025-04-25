@@ -33,13 +33,13 @@
                 HeightRequest="40" />
 
        <HorizontalStackLayout Spacing="10">
-            <Label Text="Sensor Status:" 
+            <Label Text="Sensor Type:" 
                    FontAttributes="Bold"
                    VerticalOptions="Center"/>
 
             <Picker 
               SelectedItem="{Binding Type}"
-              Title="Select a status" >
+              Title="Select a type" >
                 <Picker.ItemsSource>
                     <x:Array Type="{x:Type x:String}">
                         <x:String>Weather</x:String>
