@@ -47,6 +47,13 @@ public static class MauiProgram
 
 			builder.Services.AddSingleton<AllUsersPage>();
 			builder.Services.AddTransient<ManageUserPage>();
+
+			builder.Services.AddSingleton<ManageSensorAccountsViewModel>();
+			builder.Services.AddTransient<ManageSensorAccountViewModel>();
+
+			builder.Services.AddSingleton<AllSensorAccountsPage>();
+			builder.Services.AddTransient<ManageSensorAccountPage>();
+
     
 
 
