@@ -14,4 +14,6 @@ public class Sensor
     public string Position { get; set; }
 
     public string Status {get; set;}
+
+    public string Name {get; set;}
 }

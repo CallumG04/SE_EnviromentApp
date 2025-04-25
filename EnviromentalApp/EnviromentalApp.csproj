@@ -23,6 +23,8 @@
 		<!-- Display name -->
 		<ApplicationTitle>EnviromentalApp</ApplicationTitle>
 
+		<EnableMsixTooling>true</EnableMsixTooling>
+
 		<!-- App Identifier -->
 		<ApplicationId>com.companyname.enviromentalapp</ApplicationId>
 
