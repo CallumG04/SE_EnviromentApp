@@ -52,6 +52,19 @@ public partial class SensorViewModel : ObservableObject, IQueryAttributable
         }
     }
 
+    public string Name
+    {
+        get => _sensor.Name;
+        set
+        {
+            if (_sensor.Name != value)
+            {
+                _sensor.Name = value;
+                OnPropertyChanged();
+            }
+        }
+    }
+
     private SensorsDbContext _context;
     
     public SensorViewModel(SensorsDbContext sensorsDbContext)
