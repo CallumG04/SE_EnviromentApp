@@ -1,0 +1,37 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:EnviromentalApp.ViewModels"
+             x:Class="EnviromentalApp.Views.AllWeatherMeasurementsPage"
+             Title="Your Weather Measurements"
+             NavigatedTo="ContentPage_NavigatedTo">
+
+    <VerticalStackLayout Margin="20">
+
+        <Label Text="{Binding AverageTemp, StringFormat='Average Temperature: {0:F1} °C'}"
+               FontSize="28"
+                />
+        <Label Text="{Binding AverageHumidity, StringFormat='Average Humidity: {0:F1} %'}"
+                FontSize="28"
+                 />
+
+        <Label Text="{Binding AverageWindSpeed, StringFormat='Average Wind Speed: {0:F1} m/s'}"
+            FontSize="28" />
+
+        <Label Text="{Binding AverageWindDirection, StringFormat='Average Wind Speed: {0:F1} degrees'}"
+            FontSize="28" />
+
+        <CollectionView x:Name="weatherMeasurementsCollection"
+                        ItemsSource="{Binding AllWeatherMeasurements}"
+                        SelectionMode="Single"
+                        SelectionChangedCommand="{Binding SelectWeatherMeasurementCommand}"
+                        SelectionChangedCommandParameter="{Binding Source={RelativeSource Self}, Path=SelectedItem}">
+                        
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Vertical" ItemSpacing="10" />
+            </CollectionView.ItemsLayout>
+
+        </CollectionView>
+
+    </VerticalStackLayout>
+
+</ContentPage>
