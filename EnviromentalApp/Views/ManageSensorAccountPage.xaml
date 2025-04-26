@@ -67,6 +67,69 @@
                 </Picker.ItemsSource>
             </Picker>
         </HorizontalStackLayout>
+
+        <BoxView
+            HeightRequest="4"
+            BackgroundColor="Gray"
+            HorizontalOptions="Fill"
+            Margin="0,10"/>
+
+        <Label Text="Sensor Firmware Configuration" 
+            FontAttributes="Bold"
+            VerticalOptions="Center"
+            TextDecorations="Underline"/>
+
+        <BoxView
+            HeightRequest="0"
+            BackgroundColor="Gray"
+            HorizontalOptions="Fill"
+            Margin="0,10"/>
+
+        <HorizontalStackLayout Spacing="10">
+            <Label Text="Firmware Version:" 
+                   FontAttributes="Bold"
+                   VerticalOptions="Center"/>
+
+            <!-- Display status -->
+            <Editor x:Name="FirmwareEditor"
+                    Placeholder="Enter the firmware"
+                    Text="{Binding firmwareVersion}"
+                    HeightRequest="40" />
+        </HorizontalStackLayout>
+
+        <!-- Display measurment frequency -->
+           <HorizontalStackLayout Spacing="10">
+            <Label Text="Measurement Frequency:" 
+                   FontAttributes="Bold"
+                   VerticalOptions="Center"/>
+
+            <Picker 
+              SelectedItem="{Binding measurementFrequency}"
+              Title="Select a firmware frequency" >
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Daily</x:String>
+                        <x:String>Weekly</x:String>
+                        <x:String>Monthly</x:String>
+                        <x:String>Annualy</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+        </HorizontalStackLayout>
+
+        <!-- Display measurment frequency -->
+        <HorizontalStackLayout Spacing="10">
+            <Label Text="Threshold:" 
+                   FontAttributes="Bold"
+                   VerticalOptions="Center"/>
+
+        <!-- Display status -->
+         <Entry x:Name="SensorThreshold"
+            Placeholder="Enter the sensor threshold"
+            Text="{Binding Threshold}"
+            Keyboard="Numeric"
+            HeightRequest="40" />
+        </HorizontalStackLayout>
     
         <Grid ColumnDefinitions="*,*" ColumnSpacing="4">
             <Button Text="Save"
