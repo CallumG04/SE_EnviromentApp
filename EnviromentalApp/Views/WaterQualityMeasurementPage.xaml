@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:EnviromentalApp.ViewModels"
+             x:Class="EnviromentalApp.Views.WaterQualityMeasurementPage"
+             Title="Sensor Account">
+    <VerticalStackLayout Spacing="10" Margin="5">
+
+        <!-- Display ticketId -->
+        <HorizontalStackLayout Spacing="10">
+            <Label Text="Ticket ID:" 
+                   FontAttributes="Bold"
+                   VerticalOptions="Center"/>
+            <Label Text="{Binding ticketId}"
+                   VerticalOptions="Center"/>
+        </HorizontalStackLayout>
+
+        <!-- Display sensorId -->
+        <Entry x:Name="SensorIdEntry"
+            Placeholder="Enter the sensor id"
+            Text="{Binding sensorId}"
+            Keyboard="Numeric"
+            HeightRequest="40" />
+
+        <!-- Display description -->
+        <Editor x:Name="DescriptionEditor"
+                Placeholder="Enter the description"
+                Text="{Binding Description}"
+                HeightRequest="40" />
+
+        <!-- Display status -->
+        <Editor x:Name="StatusEditor"
+                Placeholder="Enter the status"
+                Text="{Binding Status}"
+                HeightRequest="40" />
+
+        <!-- Display status 
+       <HorizontalStackLayout Spacing="10">
+            <Label Text="Sensor Type:" 
+                   FontAttributes="Bold"
+                   VerticalOptions="Center"/>
+
+            <Picker 
+              SelectedItem="{Binding Type}"
+              Title="Select a type" >
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Open</x:String>
+                        <x:String>In Progress</x:String>
+                        <x:String>Closed</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+        </HorizontalStackLayout>
+        -->
+    
+        <Grid ColumnDefinitions="*,*" ColumnSpacing="4">
+            <Button Text="Update Ticket"
+                    Command="{Binding SaveCommand}"/>
+    
+            <Button Grid.Column="1"
+                    Text="Close Ticket"
+                    Command="{Binding DeleteCommand}"/>
+    
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>

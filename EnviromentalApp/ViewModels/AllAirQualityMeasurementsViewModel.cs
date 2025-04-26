@@ -95,7 +95,7 @@ public AllAirQualityMeasurementsViewModel(AirQualityMeasurementDbContext airQual
 
     private async Task NewAirQualityMeasurementAsync()
     {
-        await Shell.Current.GoToAsync(nameof(Views.WeatherMeasurementPage));
+        await Shell.Current.GoToAsync(nameof(Views.WaterQualityMeasurementPage));
     }
 
     private async Task SelectAirQualityMeasurementAsync(ViewModels.AirQualityMeasurementViewModel airQualityEntry)
