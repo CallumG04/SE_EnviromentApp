@@ -12,7 +12,7 @@ public partial class AllWeatherMeasurementsPage : ContentPage
 
 	private void ContentPage_NavigatedTo(object sender, NavigatedToEventArgs e)
 {
-    weatherMeasurementsCollection.SelectedItem = null;
+    //weatherMeasurementsCollection.SelectedItem = null;
 }
 
 }
