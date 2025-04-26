@@ -12,6 +12,8 @@ public partial class App : Application
         Routing.RegisterRoute(nameof(Views.ManageUserPage), typeof(Views.ManageUserPage));
         Routing.RegisterRoute(nameof(Views.AllSensorAccountsPage), typeof(Views.AllSensorAccountsPage));
         Routing.RegisterRoute(nameof(Views.ManageSensorAccountPage), typeof(Views.ManageSensorAccountPage));
+        Routing.RegisterRoute(nameof(Views.AllTicketsPage), typeof(Views.AllTicketsPage));
+        Routing.RegisterRoute(nameof(Views.TicketPage), typeof(Views.TicketPage));
 
         MainPage = new AppShell();
 

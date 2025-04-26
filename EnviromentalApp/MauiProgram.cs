@@ -35,6 +35,7 @@ public static class MauiProgram
 			var connectionString = builder.Configuration.GetConnectionString("DevelopmentConnection");
 			builder.Services.AddDbContext<SensorsDbContext>(options => options.UseSqlServer(connectionString));
 			builder.Services.AddDbContext<UsersDbContext>(options => options.UseSqlServer(connectionString));
+			builder.Services.AddDbContext<TicketsDbContext>(options => options.UseSqlServer(connectionString));
 
 			builder.Services.AddSingleton<SensorsViewModel>();
 			builder.Services.AddTransient<SensorViewModel>();
@@ -53,6 +54,12 @@ public static class MauiProgram
 
 			builder.Services.AddSingleton<AllSensorAccountsPage>();
 			builder.Services.AddTransient<ManageSensorAccountPage>();
+
+			builder.Services.AddSingleton<TicketsViewModel>();
+			builder.Services.AddTransient<TicketViewModel>();
+
+			builder.Services.AddSingleton<AllTicketsPage>();
+			builder.Services.AddTransient<TicketPage>();
 
     
 
