@@ -7,7 +7,7 @@
     
     <!-- Add an item to the toolbar -->
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" Command="{Binding NewCommand}" IconImageSource="{FontImage Glyph='+', Color=Black, Size=22}" />
+        <ToolbarItem Text="Add Sensor" Command="{Binding NewCommand}" IconImageSource="{FontImage Glyph='+', Color=Black, Size=22}" />
     </ContentPage.ToolbarItems>
     
     <!-- Display notes in a list -->
@@ -29,6 +29,7 @@
                     <Label Text="{Binding Name}" FontSize="22"/>
                     <Label Text="{Binding Type}" FontSize="22"/>
                     <Label Text="{Binding Status}" FontSize="14" TextColor="Silver"/>
+                    <Label Text="{Binding firmwareVersion}" FontSize="14" TextColor="Silver"/>
                 </StackLayout>
             </DataTemplate>
         </CollectionView.ItemTemplate>

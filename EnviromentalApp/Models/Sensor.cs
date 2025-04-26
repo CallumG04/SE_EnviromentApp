@@ -16,4 +16,10 @@ public class Sensor
     public string Status {get; set;}
 
     public string Name {get; set;}
+
+    public string firmwareVersion {get; set;}
+
+    public string measurementFrequency {get; set;}
+
+    public int Threshold {get; set;}
 }
