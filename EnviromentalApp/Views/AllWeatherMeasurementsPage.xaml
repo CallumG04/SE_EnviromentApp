@@ -20,18 +20,6 @@
         <Label Text="{Binding AverageWindDirection, StringFormat='Average Wind Speed: {0:F1} degrees'}"
             FontSize="28" />
 
-        <CollectionView x:Name="weatherMeasurementsCollection"
-                        ItemsSource="{Binding AllWeatherMeasurements}"
-                        SelectionMode="Single"
-                        SelectionChangedCommand="{Binding SelectWeatherMeasurementCommand}"
-                        SelectionChangedCommandParameter="{Binding Source={RelativeSource Self}, Path=SelectedItem}">
-                        
-            <CollectionView.ItemsLayout>
-                <LinearItemsLayout Orientation="Vertical" ItemSpacing="10" />
-            </CollectionView.ItemsLayout>
-
-        </CollectionView>
-
     </VerticalStackLayout>
 
 </ContentPage>

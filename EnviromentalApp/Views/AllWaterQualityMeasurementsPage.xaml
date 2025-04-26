@@ -1,26 +1,29 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:EnviromentalApp.ViewModels"
-             x:Class="EnviromentalApp.Views.AllAirQualityMeasurementsPage"
+             x:Class="EnviromentalApp.Views.AllWaterQualityMeasurementsPage"
              Title="Your Air Quality Measurements"
              NavigatedTo="ContentPage_NavigatedTo">
 
     <VerticalStackLayout Margin="20">
 
-        <Label Text="{Binding AverageN02, StringFormat='Average N02: {0:F1} ug/m3'}"
+        <Label Text="{Binding AverageNitrateN03, StringFormat='Average Nitrate N03: {0:F1} mg/l'}"
                FontSize="28"
                 />
-        <Label Text="{Binding AverageS02, StringFormat='Average S02: {0:F1} mg/m3'}"
+        <Label Text="{Binding AverageNitrateN02, StringFormat='Average Nitrate N03: {0:F1} mg/l'}"
                 FontSize="28"
                  />
 
-        <Label Text="{Binding AveragePm25, StringFormat='Average PM25 {0:F1} mg/m3'}"
+        <Label Text="{Binding AveragePhosphate, StringFormat='Average Phosphate {0:F1} mg/l'}"
             FontSize="28" />
 
-        <Label Text="{Binding AveragePm10, StringFormat='Average PM10: {0:F1} mg/m3'}"
+        <Label Text="{Binding AverageEC, StringFormat='Average EC: {0:F1} cfu/100ml'}"
             FontSize="28" />
 
-        <CollectionView x:Name="weatherMeasurementsCollection"
+        <Label Text="{Binding AverageIE, StringFormat='Average IE: {0:F1} cfu/100ml'}"
+            FontSize="28" />
+
+        <CollectionView x:Name="waterQualityMeasurementsCollection"
                         ItemsSource="{Binding AllWeatherMeasurements}"
                         SelectionMode="Single"
                         SelectionChangedCommand="{Binding SelectWeatherMeasurementCommand}"
