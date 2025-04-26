@@ -65,45 +65,6 @@ public partial class ManageSensorAccountViewModel : ObservableObject, IQueryAttr
         }
     }
 
-    public string firmwareVersion
-    {
-        get => _sensor.firmwareVersion;
-        set
-        {
-            if (_sensor.firmwareVersion != value)
-            {
-                _sensor.firmwareVersion = value;
-                OnPropertyChanged();
-            }
-        }
-    }
-
-    public string measurementFrequency
-    {
-        get => _sensor.measurementFrequency;
-        set
-        {
-            if (_sensor.measurementFrequency != value)
-            {
-                _sensor.measurementFrequency = value;
-                OnPropertyChanged();
-            }
-        }
-    }
-
-    public int Threshold
-    {
-        get => _sensor.Threshold;
-        set
-        {
-            if (_sensor.Threshold != value)
-            {
-                _sensor.Threshold = value;
-                OnPropertyChanged();
-            }
-        }
-    }
-
     private SensorsDbContext _context;
     
     public ManageSensorAccountViewModel(SensorsDbContext sensorsDbContext)
