@@ -37,6 +37,7 @@ public static class MauiProgram
 			builder.Services.AddDbContext<UsersDbContext>(options => options.UseSqlServer(connectionString));
 			builder.Services.AddDbContext<TicketsDbContext>(options => options.UseSqlServer(connectionString));
 			builder.Services.AddDbContext<WeatherMeasurementDbContext>(options => options.UseSqlServer(connectionString));
+			builder.Services.AddDbContext<AirQualityMeasurementDbContext>(options => options.UseSqlServer(connectionString));
 
 			builder.Services.AddSingleton<SensorsViewModel>();
 			builder.Services.AddTransient<SensorViewModel>();
@@ -67,6 +68,12 @@ public static class MauiProgram
 
 			builder.Services.AddSingleton<AllWeatherMeasurementsPage>();
 			builder.Services.AddTransient<WeatherMeasurementPage>();
+
+			builder.Services.AddSingleton<AllAirQualityMeasurementsViewModel>();
+			//builder.Services.AddTransient<WeatherMeasurementViewModel>();
+
+			builder.Services.AddSingleton<AllAirQualityMeasurementsPage>();
+			//builder.Services.AddTransient<WeatherMeasurementPage>();
 
     
 

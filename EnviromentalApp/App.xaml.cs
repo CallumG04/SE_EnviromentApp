@@ -16,6 +16,7 @@ public partial class App : Application
         Routing.RegisterRoute(nameof(Views.TicketPage), typeof(Views.TicketPage));
         Routing.RegisterRoute(nameof(Views.AllWeatherMeasurementsPage), typeof(Views.AllWeatherMeasurementsPage));
         Routing.RegisterRoute(nameof(Views.WeatherMeasurementPage), typeof(Views.WeatherMeasurementPage));
+        Routing.RegisterRoute(nameof(Views.AllAirQualityMeasurementsPage), typeof(Views.AllAirQualityMeasurementsPage));
 
         MainPage = new AppShell();
 
