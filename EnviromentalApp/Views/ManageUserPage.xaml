@@ -5,17 +5,52 @@
              x:Class="EnviromentalApp.Views.ManageUserPage"
              Title="User">
     <VerticalStackLayout Spacing="10" Margin="5">
-        <Editor x:Name="UsernameEditor"
-                Placeholder="Enter your username"
-                Text="{Binding Username}"
-                HeightRequest="100" />
+
+        <HorizontalStackLayout Spacing="10">
+            <Label Text="Id:" 
+                   FontAttributes="Bold"
+                   VerticalOptions="Center"/>
+            <Label Text="{Binding Id}"
+                   VerticalOptions="Center"/>
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout Spacing="10">
+            <Label Text="Username:" 
+                   FontAttributes="Bold"
+                   VerticalOptions="Center"/>
+
+            <!-- Display status -->
+            <Editor x:Name="UsernameEditor"
+                    Placeholder="Enter username"
+                    Text="{Binding Username}"
+                    HeightRequest="40"
+                    WidthRequest="300" />
+        </HorizontalStackLayout>
+
+       <HorizontalStackLayout Spacing="10">
+            <Label Text="Role:" 
+                   FontAttributes="Bold"
+                   VerticalOptions="Center"/>
+
+            <Picker 
+              SelectedItem="{Binding Role}"
+              WidthRequest="200">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Administrator</x:String>
+                        <x:String>Operations Manager</x:String>
+                        <x:String>Enviromental Scientist</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+        </HorizontalStackLayout>
     
         <Grid ColumnDefinitions="*,*" ColumnSpacing="4">
-            <Button Text="Save"
+            <Button Text="Save User"
                     Command="{Binding SaveCommand}"/>
     
             <Button Grid.Column="1"
-                    Text="Delete"
+                    Text="Delete User"
                     Command="{Binding DeleteCommand}"/>
     
         </Grid>

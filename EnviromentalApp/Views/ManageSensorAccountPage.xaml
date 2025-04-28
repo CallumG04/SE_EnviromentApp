@@ -4,8 +4,8 @@
              xmlns:viewModels="clr-namespace:EnviromentalApp.ViewModels"
              x:Class="EnviromentalApp.Views.ManageSensorAccountPage"
              Title="Sensor Account">
+    <ScrollView Margin="20">
     <VerticalStackLayout Spacing="10" Margin="5">
-
         <HorizontalStackLayout Spacing="10">
             <Label Text="ID:" 
                    FontAttributes="Bold"
@@ -33,31 +33,31 @@
                 HeightRequest="40" />
 
        <HorizontalStackLayout Spacing="10">
-            <Label Text="Sensor Type:" 
+            <Label Text="Type:" 
                    FontAttributes="Bold"
                    VerticalOptions="Center"/>
 
             <Picker 
               SelectedItem="{Binding Type}"
-              Title="Select a type" >
+              WidthRequest="200">
                 <Picker.ItemsSource>
                     <x:Array Type="{x:Type x:String}">
-                        <x:String>Weather</x:String>
                         <x:String>Air Quality</x:String>
                         <x:String>Water Quality</x:String>
+                        <x:String>Weather</x:String>
                     </x:Array>
                 </Picker.ItemsSource>
             </Picker>
         </HorizontalStackLayout>
 
        <HorizontalStackLayout Spacing="10">
-            <Label Text="Sensor Status:" 
+            <Label Text="Status:" 
                    FontAttributes="Bold"
                    VerticalOptions="Center"/>
 
             <Picker 
               SelectedItem="{Binding Status}"
-              Title="Select a status" >
+              WidthRequest="200">
                 <Picker.ItemsSource>
                     <x:Array Type="{x:Type x:String}">
                         <x:String>Online</x:String>
@@ -89,46 +89,41 @@
             <Label Text="Firmware Version:" 
                    FontAttributes="Bold"
                    VerticalOptions="Center"/>
-
-            <!-- Display status -->
-            <Editor x:Name="FirmwareEditor"
-                    Placeholder="Enter the firmware"
-                    Text="{Binding firmwareVersion}"
-                    HeightRequest="40" />
+            <Editor x:Name="UsernameEditor"
+                            Placeholder="Enter username"
+                            Text="{Binding Username}"
+                            HeightRequest="40"
+                            WidthRequest="300" />
         </HorizontalStackLayout>
 
-        <!-- Display measurment frequency -->
-           <HorizontalStackLayout Spacing="10">
+       <HorizontalStackLayout Spacing="10">
             <Label Text="Measurement Frequency:" 
                    FontAttributes="Bold"
                    VerticalOptions="Center"/>
 
             <Picker 
               SelectedItem="{Binding measurementFrequency}"
-              Title="Select a firmware frequency" >
+              WidthRequest="200">
                 <Picker.ItemsSource>
                     <x:Array Type="{x:Type x:String}">
                         <x:String>Daily</x:String>
                         <x:String>Weekly</x:String>
                         <x:String>Monthly</x:String>
-                        <x:String>Annualy</x:String>
+                         <x:String>Annualy</x:String>
                     </x:Array>
                 </Picker.ItemsSource>
             </Picker>
         </HorizontalStackLayout>
 
-        <!-- Display measurment frequency -->
         <HorizontalStackLayout Spacing="10">
             <Label Text="Threshold:" 
                    FontAttributes="Bold"
                    VerticalOptions="Center"/>
-
-        <!-- Display status -->
-         <Entry x:Name="SensorThreshold"
-            Placeholder="Enter the sensor threshold"
-            Text="{Binding Threshold}"
-            Keyboard="Numeric"
-            HeightRequest="40" />
+            <Editor x:Name="ThresholdEditor"
+                            Placeholder="Enter threshold"
+                            Text="{Binding Threshold}"
+                            HeightRequest="40"
+                            WidthRequest="300" />
         </HorizontalStackLayout>
     
         <Grid ColumnDefinitions="*,*" ColumnSpacing="4">
@@ -141,4 +136,5 @@
     
         </Grid>
     </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
