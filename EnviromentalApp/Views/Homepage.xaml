@@ -39,7 +39,10 @@
             HorizontalOptions="Center" />
 
         <Label 
-            Text="This is used to display a list of all the current sensor accounts regisered in the app so that an _____ can view the details of each one. If only the sensor Id, name and status is needed then this can be seen on the main page. However, if a user wishes to view all details about a sensor then simply click on a specific sensor and all details about that specific sensor will be displayed."
+            Text="This is used to display a list of all the current sensor accounts regisered in the app so that a user with a ___ role can view the details of each one.
+                 If only the sensor Id, name and status is needed then this can be seen on the main page. However, if a user wishes to view all details about 
+                 a sensor then simply click on a specific sensor and all details about that specific sensor will be displayed. To manage / edit details about a sensor, this can be done 
+                 through the sensor accounts page."
             VerticalOptions="Center" 
             HorizontalOptions="Center"
             Margin="70, 10, 70,10"/>
@@ -57,7 +60,8 @@
             HorizontalOptions="Center" />
 
         <Label 
-            Text="This is used to display a list of all the current sensor accounts regisered in the app so that an _____ can view the details of each one. If only the sensor Id, name and status is needed then this can be seen on the main page. However, if a user wishes to view all details about a sensor then simply click on a specific sensor and all details about that specific sensor will be displayed."
+            Text="Tnis page is used to list all users registered in the app. At first, only the Id, Username and role are displayed but to edit details of a user simply
+            click on the user and you will be able to modify all sensor details."
             VerticalOptions="Center" 
             HorizontalOptions="Center"
             Margin="70, 10, 70,10"/>
@@ -75,7 +79,8 @@
             HorizontalOptions="Center" />
 
         <Label 
-            Text="This is used to display a list of all the current sensor accounts regisered in the app so that an _____ can view the details of each one. If only the sensor Id, name and status is needed then this can be seen on the main page. However, if a user wishes to view all details about a sensor then simply click on a specific sensor and all details about that specific sensor will be displayed."
+            Text="If any issue is found out about a sensor (ie. it has a status of Needs configuration) then this can be logged here. Simply press the add ticket buttomn and enter the description of why the ticker is being raised and link it to a sensor then click the save button to save the details. 
+            If a ticket details needs to be edited then this can be done by selecting the ticker and simply modifiying its details. If a ticket has been resolved and can be closed then this can be done by clicking into the ticket and selecting the close ticket button."
             VerticalOptions="Center" 
             HorizontalOptions="Center"
             Margin="70, 10, 70,10"/>
@@ -93,7 +98,7 @@
             HorizontalOptions="Center" />
 
         <Label 
-            Text="This is used to display a list of all the current sensor accounts regisered in the app so that an _____ can view the details of each one. If only the sensor Id, name and status is needed then this can be seen on the main page. However, if a user wishes to view all details about a sensor then simply click on a specific sensor and all details about that specific sensor will be displayed."
+            Text="Shows a breif report about all the historical weather data and an average, min value recored and max value recorded for each field associated with weather data."
             VerticalOptions="Center" 
             HorizontalOptions="Center"
             Margin="70, 10, 70,10" />
@@ -111,7 +116,7 @@
             HorizontalOptions="Center" />
 
         <Label 
-            Text="This is used to display a list of all the current sensor accounts regisered in the app so that an _____ can view the details of each one. If only the sensor Id, name and status is needed then this can be seen on the main page. However, if a user wishes to view all details about a sensor then simply click on a specific sensor and all details about that specific sensor will be displayed."
+            Text="Shows a breif report about all the historical air quality data and an average, min value recored and max value recorded for each field associated with air quality data."
             VerticalOptions="Center" 
             HorizontalOptions="Center"
             Margin="70, 10, 70,10" />
@@ -129,7 +134,7 @@
             HorizontalOptions="Center" />
 
         <Label 
-            Text="This is used to display a list of all the current sensor accounts regisered in the app so that an _____ can view the details of each one. If only the sensor Id, name and status is needed then this can be seen on the main page. However, if a user wishes to view all details about a sensor then simply click on a specific sensor and all details about that specific sensor will be displayed."
+            Text="Shows a breif report about all the water quality weather data and an average, min value recored and max value recorded for each field associated with water quality data."
             VerticalOptions="Center" 
             HorizontalOptions="Center"
             Margin="70, 10, 70,10"/>
