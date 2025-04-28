@@ -3,21 +3,85 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:EnviromentalApp.ViewModels"
              x:Class="EnviromentalApp.Views.SensorPage"
-             Title="Note">
+             Title="Sensor Details">
     <VerticalStackLayout Spacing="10" Margin="5">
-        <Editor x:Name="TextEditor"
-                Placeholder="Enter your note"
-                Text="{Binding Type}"
-                HeightRequest="100" />
-    
-        <Grid ColumnDefinitions="*,*" ColumnSpacing="4">
-            <Button Text="Save"
-                    Command="{Binding SaveCommand}"/>
-    
-            <Button Grid.Column="1"
-                    Text="Delete"
-                    Command="{Binding DeleteCommand}"/>
-    
-        </Grid>
+
+        <Label 
+            Text="Sensor Details"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <HorizontalStackLayout Spacing="10">
+            <Label Text="Id:" 
+                   FontAttributes="Bold"
+                   VerticalOptions="Center"/>
+            <Label Text="{Binding sensorId}"
+                   VerticalOptions="Center"/>
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout Spacing="10">
+            <Label Text="Date:" 
+                   FontAttributes="Bold"
+                   VerticalOptions="Center"/>
+            <Label Text="{Binding Date}"
+                   VerticalOptions="Center"/>
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout Spacing="10">
+            <Label Text="Type:" 
+                   FontAttributes="Bold"
+                   VerticalOptions="Center"/>
+            <Label Text="{Binding Type}"
+                   VerticalOptions="Center"/>
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout Spacing="10">
+            <Label Text="Position:" 
+                   FontAttributes="Bold"
+                   VerticalOptions="Center"/>
+            <Label Text="{Binding Position}"
+                   VerticalOptions="Center"/>
+        </HorizontalStackLayout>
+
+       <HorizontalStackLayout Spacing="10">
+            <Label Text="Status:" 
+                   FontAttributes="Bold"
+                   VerticalOptions="Center"/>
+            <Label Text="{Binding Status}"
+                   VerticalOptions="Center"/>
+        </HorizontalStackLayout>
+
+       <HorizontalStackLayout Spacing="10">
+            <Label Text="Name:" 
+                   FontAttributes="Bold"
+                   VerticalOptions="Center"/>
+            <Label Text="{Binding Name}"
+                   VerticalOptions="Center"/>
+        </HorizontalStackLayout>
+
+       <HorizontalStackLayout Spacing="10">
+            <Label Text="Firmware Version:" 
+                   FontAttributes="Bold"
+                   VerticalOptions="Center"/>
+            <Label Text="{Binding firmwareVersion}"
+                   VerticalOptions="Center"/>
+        </HorizontalStackLayout>
+
+       <HorizontalStackLayout Spacing="10">
+            <Label Text="Measurement Frequency:" 
+                   FontAttributes="Bold"
+                   VerticalOptions="Center"/>
+            <Label Text="{Binding measurementFrequency}"
+                   VerticalOptions="Center"/>
+        </HorizontalStackLayout>
+
+       <HorizontalStackLayout Spacing="10">
+            <Label Text="Threshold:" 
+                   FontAttributes="Bold"
+                   VerticalOptions="Center"/>
+            <Label Text="{Binding Threshold}"
+                   VerticalOptions="Center"/>
+        </HorizontalStackLayout>
+
     </VerticalStackLayout>
 </ContentPage>

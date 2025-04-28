@@ -6,6 +6,7 @@
     <VerticalStackLayout>
         <Label 
             Text="Enviromental App"
+            FontSize="25"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
 
@@ -13,5 +14,130 @@
             Text="Welcome to this app"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
+
+        <Label 
+            Text="The main point of this app is to help / enhance local enviromental conditions. The three categories are air quality, water quality and weather conditions. Through the use of various sensors used to measure these 3 categories, this app will help to identifiy any trneds in local enviromental conditions."
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+            Margin="70, 10, 70,10" />
+
+        <Label 
+            Text="Excluding the homepage there are 7 tabs in this app. Here is a breif summary of what each one does:"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <BoxView
+            HeightRequest="4"
+            BackgroundColor="Gray"
+            HorizontalOptions="Fill"
+            Margin="70, 30, 70, 30"/>
+
+        <Label 
+            Text="Sensors and Sensor Accounts"
+            TextDecorations="Underline"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <Label 
+            Text="This is used to display a list of all the current sensor accounts regisered in the app so that an _____ can view the details of each one. If only the sensor Id, name and status is needed then this can be seen on the main page. However, if a user wishes to view all details about a sensor then simply click on a specific sensor and all details about that specific sensor will be displayed."
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            Margin="70, 10, 70,10"/>
+
+        <BoxView
+            HeightRequest="4"
+            BackgroundColor="Gray"
+            HorizontalOptions="Fill"
+            Margin="70, 10, 70,10"/>
+
+        <Label 
+            Text="Users"
+            TextDecorations="Underline"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <Label 
+            Text="This is used to display a list of all the current sensor accounts regisered in the app so that an _____ can view the details of each one. If only the sensor Id, name and status is needed then this can be seen on the main page. However, if a user wishes to view all details about a sensor then simply click on a specific sensor and all details about that specific sensor will be displayed."
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            Margin="70, 10, 70,10"/>
+
+        <BoxView
+            HeightRequest="4"
+            BackgroundColor="Gray"
+            HorizontalOptions="Fill"
+            Margin="70, 10, 70,10"/>
+
+        <Label 
+            Text="Tickets"
+            TextDecorations="Underline"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <Label 
+            Text="This is used to display a list of all the current sensor accounts regisered in the app so that an _____ can view the details of each one. If only the sensor Id, name and status is needed then this can be seen on the main page. However, if a user wishes to view all details about a sensor then simply click on a specific sensor and all details about that specific sensor will be displayed."
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            Margin="70, 10, 70,10"/>
+
+        <BoxView
+            HeightRequest="4"
+            BackgroundColor="Gray"
+            HorizontalOptions="Fill"
+            Margin="70, 10, 70,10"/>
+
+        <Label 
+            Text="Weather"
+            TextDecorations="Underline"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <Label 
+            Text="This is used to display a list of all the current sensor accounts regisered in the app so that an _____ can view the details of each one. If only the sensor Id, name and status is needed then this can be seen on the main page. However, if a user wishes to view all details about a sensor then simply click on a specific sensor and all details about that specific sensor will be displayed."
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            Margin="70, 10, 70,10" />
+
+        <BoxView
+            HeightRequest="4"
+            BackgroundColor="Gray"
+            HorizontalOptions="Fill"
+            Margin="70, 10, 70,10"/>
+
+        <Label 
+            Text="Air Quality"
+            TextDecorations="Underline"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <Label 
+            Text="This is used to display a list of all the current sensor accounts regisered in the app so that an _____ can view the details of each one. If only the sensor Id, name and status is needed then this can be seen on the main page. However, if a user wishes to view all details about a sensor then simply click on a specific sensor and all details about that specific sensor will be displayed."
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            Margin="70, 10, 70,10" />
+
+        <BoxView
+            HeightRequest="4"
+            BackgroundColor="Gray"
+            HorizontalOptions="Fill"
+            Margin="70, 10, 70,10"/>
+
+        <Label 
+            Text="Water Quality"
+            TextDecorations="Underline"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <Label 
+            Text="This is used to display a list of all the current sensor accounts regisered in the app so that an _____ can view the details of each one. If only the sensor Id, name and status is needed then this can be seen on the main page. However, if a user wishes to view all details about a sensor then simply click on a specific sensor and all details about that specific sensor will be displayed."
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            Margin="70, 10, 70,10"/>
+
+        <BoxView
+            HeightRequest="4"
+            BackgroundColor="Gray"
+            HorizontalOptions="Fill"
+            Margin="70, 10, 70,10"/>
     </VerticalStackLayout>
 </ContentPage>
