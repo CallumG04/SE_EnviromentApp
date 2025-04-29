@@ -27,6 +27,19 @@
                     WidthRequest="300" />
         </HorizontalStackLayout>
 
+        <HorizontalStackLayout Spacing="10">
+            <Label Text="Password:" 
+                   FontAttributes="Bold"
+                   VerticalOptions="Center"/>
+
+            <!-- Display status -->
+            <Editor x:Name="PasswordEditor"
+                    Placeholder="Enter password"
+                    Text="{Binding Password}"
+                    HeightRequest="40"
+                    WidthRequest="300" />
+        </HorizontalStackLayout>
+
        <HorizontalStackLayout Spacing="10">
             <Label Text="Role:" 
                    FontAttributes="Bold"

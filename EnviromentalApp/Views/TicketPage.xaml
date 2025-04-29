@@ -3,59 +3,69 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:EnviromentalApp.ViewModels"
              x:Class="EnviromentalApp.Views.TicketPage"
-             Title="Sensor Account">
+             Title="Manage Ticket">
     <VerticalStackLayout Spacing="10" Margin="5">
 
-        <!-- Display ticketId -->
+
         <HorizontalStackLayout Spacing="10">
             <Label Text="Ticket ID:" 
                    FontAttributes="Bold"
                    VerticalOptions="Center"/>
-            <Label Text="{Binding ticketId}"
+
+             <Label Text="{Binding ticketId}" 
+                   FontAttributes="Bold"
                    VerticalOptions="Center"/>
+
         </HorizontalStackLayout>
 
+        <HorizontalStackLayout Spacing="10">
+            <Label Text="Sensor ID:" 
+                   FontAttributes="Bold"
+                   VerticalOptions="Center"/>
+
         <!-- Display sensorId -->
-        <Entry x:Name="SensorIdEntry"
-            Placeholder="Enter the sensor id"
-            Text="{Binding sensorId}"
-            Keyboard="Numeric"
-            HeightRequest="40" />
+            <Entry x:Name="SensorIdEntry"
+                Placeholder="Enter the sensor id"
+                Text="{Binding sensorId}"
+                Keyboard="Numeric"
+                HeightRequest="40"
+                WidthRequest="100" />
 
-        <!-- Display description -->
-        <Editor x:Name="DescriptionEditor"
-                Placeholder="Enter the description"
-                Text="{Binding Description}"
-                HeightRequest="40" />
+        </HorizontalStackLayout>
 
-        <!-- Display status -->
-        <Editor x:Name="StatusEditor"
-                Placeholder="Enter the status"
-                Text="{Binding Status}"
-                HeightRequest="40" />
+      <HorizontalStackLayout Spacing="10">
+            <Label Text="Description:" 
+                   FontAttributes="Bold"
+                   VerticalOptions="Center"/>
 
-        <!-- Display status 
-       <HorizontalStackLayout Spacing="10">
-            <Label Text="Sensor Type:" 
+            <!-- Display description -->
+            <Editor x:Name="DescriptionEditor"
+                    Placeholder="Enter the description"
+                    Text="{Binding Description}"
+                    HeightRequest="40"
+                    WidthRequest="300" />
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout Spacing="10">
+            <Label Text="Status:" 
                    FontAttributes="Bold"
                    VerticalOptions="Center"/>
 
             <Picker 
-              SelectedItem="{Binding Type}"
-              Title="Select a type" >
+              SelectedItem="{Binding Status}"
+              WidthRequest="200">
                 <Picker.ItemsSource>
                     <x:Array Type="{x:Type x:String}">
                         <x:String>Open</x:String>
-                        <x:String>In Progress</x:String>
                         <x:String>Closed</x:String>
+                        <x:String>In progress</x:String>
                     </x:Array>
                 </Picker.ItemsSource>
             </Picker>
         </HorizontalStackLayout>
-        -->
     
         <Grid ColumnDefinitions="*,*" ColumnSpacing="4">
-            <Button Text="Update Ticket"
+            <Button Text="Save Ticket"
                     Command="{Binding SaveCommand}"/>
     
             <Button Grid.Column="1"
