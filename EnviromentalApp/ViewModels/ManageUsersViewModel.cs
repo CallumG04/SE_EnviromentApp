@@ -1,7 +1,7 @@
-using EnviromentalApp.Data;
+using EnviromentalApp.Database.Data;
+using EnviromentalApp.Database.Models;
 using System.Diagnostics;
 using CommunityToolkit.Mvvm.Input;
-using EnviromentalApp.Models;
 using EnviromentalApp.ViewModels;
 using EnviromentalApp.Views;
 using System.Collections.ObjectModel;

@@ -1,5 +1,5 @@
-using EnviromentalApp.Data;
-using EnviromentalApp.Models;
+using EnviromentalApp.Database.Data;
+using EnviromentalApp.Database.Models;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.ComponentModel;
 using System.Windows.Input;
@@ -8,7 +8,7 @@ namespace EnviromentalApp.ViewModels;
 
 public partial class TicketViewModel : ObservableObject, IQueryAttributable
 {
-    private Models.Ticket _ticket;
+    private Ticket _ticket;
     
 
     public int ticketId => _ticket.ticketId;

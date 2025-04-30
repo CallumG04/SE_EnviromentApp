@@ -2,7 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace EnviromentalApp.Models;
+namespace EnviromentalApp.Database.Models;
 
 [Table("Users")]
 [PrimaryKey(nameof(Id))]

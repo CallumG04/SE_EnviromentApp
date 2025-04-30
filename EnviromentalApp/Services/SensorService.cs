@@ -1,4 +1,4 @@
-using EnviromentalApp.Models;
+using EnviromentalApp.Database.Models;
 using System.Collections.Generic;
 
 /*

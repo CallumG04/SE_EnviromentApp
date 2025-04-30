@@ -1,5 +1,5 @@
-using EnviromentalApp.Data;
-using EnviromentalApp.Models;
+using EnviromentalApp.Database.Data;
+using EnviromentalApp.Database.Models;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.ComponentModel;
 using System.Windows.Input;
@@ -8,7 +8,7 @@ namespace EnviromentalApp.ViewModels;
 
 public partial class WeatherMeasurementViewModel : ObservableObject, IQueryAttributable
 {
-    private Models.WeatherMeasurement _weatherMeasurement;
+    private WeatherMeasurement _weatherMeasurement;
     
     public int Id => _weatherMeasurement.Id;
     public int sensorId
