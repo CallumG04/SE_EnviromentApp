@@ -1,5 +1,5 @@
 namespace EnviromentalApp.Test;
-    
+
 public class UnitTest1
 {
     [Fact]

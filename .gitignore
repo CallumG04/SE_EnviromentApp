@@ -67,3 +67,6 @@ EnviromentalApp.Database/bin/
 EnviromentalApp.Migrations/obj/
 EnviromentalApp.Migrations/bin/
 .vscode
+
+EnviromentalApp.Test/obj
+EnviromentalApp.Test/bin
