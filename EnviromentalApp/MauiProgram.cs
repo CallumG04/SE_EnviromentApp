@@ -1,11 +1,12 @@
 ﻿using System.Reflection;
 using EnviromentalApp.ViewModels;
-using EnviromentalApp.Data;
+using EnviromentalApp.Database.Data;
 using EnviromentalApp.Views;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Configuration.Json;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
+using EnviromentalApp.Database.Data;
 
 
 namespace EnviromentalApp;
@@ -23,22 +24,12 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
 
-			var a = Assembly.GetExecutingAssembly();
-			using var stream = a.GetManifestResourceStream("EnviromentalApp.appsettings.json");
-				
-			var config = new ConfigurationBuilder()
-				.AddJsonStream(stream)
-				.Build();
-				
-			builder.Configuration.AddConfiguration(config);
-
-			var connectionString = builder.Configuration.GetConnectionString("DevelopmentConnection");
-			builder.Services.AddDbContext<SensorsDbContext>(options => options.UseSqlServer(connectionString));
-			builder.Services.AddDbContext<UsersDbContext>(options => options.UseSqlServer(connectionString));
-			builder.Services.AddDbContext<TicketsDbContext>(options => options.UseSqlServer(connectionString));
-			builder.Services.AddDbContext<WeatherMeasurementDbContext>(options => options.UseSqlServer(connectionString));
-			builder.Services.AddDbContext<AirQualityMeasurementDbContext>(options => options.UseSqlServer(connectionString));
-			builder.Services.AddDbContext<WaterQualityMeasurementDbContext>(options => options.UseSqlServer(connectionString));
+			builder.Services.AddDbContext<AirQualityMeasurementDbContext>();
+			builder.Services.AddDbContext<SensorsDbContext>();
+			builder.Services.AddDbContext<TicketsDbContext>();
+			builder.Services.AddDbContext<UsersDbContext>();
+			builder.Services.AddDbContext<WaterQualityMeasurementDbContext>();
+			builder.Services.AddDbContext<WeatherMeasurementDbContext>();
 
 			builder.Services.AddSingleton<SensorsViewModel>();
 			builder.Services.AddTransient<SensorViewModel>();

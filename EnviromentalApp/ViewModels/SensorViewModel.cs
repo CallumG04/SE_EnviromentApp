@@ -1,5 +1,5 @@
-using EnviromentalApp.Data;
-using EnviromentalApp.Models;
+using EnviromentalApp.Database.Data;
+using EnviromentalApp.Database.Models;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.ComponentModel;
 using System.Windows.Input;
@@ -8,7 +8,7 @@ namespace EnviromentalApp.ViewModels;
 
 public partial class SensorViewModel : ObservableObject, IQueryAttributable
 {
-    private Models.Sensor _sensor;
+    private Sensor _sensor;
 
     public int sensorId => _sensor.sensorId;
 
