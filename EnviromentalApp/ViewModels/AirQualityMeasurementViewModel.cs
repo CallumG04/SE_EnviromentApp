@@ -89,16 +89,16 @@ public partial class AirQualityMeasurementViewModel : ObservableObject, IQueryAt
         }
     }
 
-    private AirQualityMeasurementDbContext _context;
+    private EnviromentalAppDbContext _context;
 
     
     
-    public AirQualityMeasurementViewModel(AirQualityMeasurementDbContext airQualityMeasurementDbContext)
+    public AirQualityMeasurementViewModel(EnviromentalAppDbContext airQualityMeasurementDbContext)
     {
         _context = airQualityMeasurementDbContext;
         _airQualityMeasurement = new AirQualityMeasurement();
     }
-    public AirQualityMeasurementViewModel(AirQualityMeasurementDbContext weatherMeasurementDbContext, AirQualityMeasurement airQualityMeasurement)
+    public AirQualityMeasurementViewModel(EnviromentalAppDbContext weatherMeasurementDbContext, AirQualityMeasurement airQualityMeasurement)
     {
         _airQualityMeasurement = airQualityMeasurement;
         _context = weatherMeasurementDbContext;

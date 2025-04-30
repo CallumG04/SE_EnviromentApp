@@ -103,14 +103,14 @@ public partial class ManageSensorAccountViewModel : ObservableObject, IQueryAttr
         }
     }
 
-    private SensorsDbContext _context;
+    private EnviromentalAppDbContext _context;
     
-    public ManageSensorAccountViewModel(SensorsDbContext sensorsDbContext)
+    public ManageSensorAccountViewModel(EnviromentalAppDbContext sensorsDbContext)
     {
         _context = sensorsDbContext;
         _sensor = new Sensor();
     }
-    public ManageSensorAccountViewModel(SensorsDbContext sensorsDbContext, Sensor sensor)
+    public ManageSensorAccountViewModel(EnviromentalAppDbContext sensorsDbContext, Sensor sensor)
     {
         _sensor = sensor;
         _context = sensorsDbContext;

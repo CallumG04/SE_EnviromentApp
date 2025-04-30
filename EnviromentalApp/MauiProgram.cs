@@ -24,12 +24,7 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
 
-			builder.Services.AddDbContext<AirQualityMeasurementDbContext>();
-			builder.Services.AddDbContext<SensorsDbContext>();
-			builder.Services.AddDbContext<TicketsDbContext>();
-			builder.Services.AddDbContext<UsersDbContext>();
-			builder.Services.AddDbContext<WaterQualityMeasurementDbContext>();
-			builder.Services.AddDbContext<WeatherMeasurementDbContext>();
+			builder.Services.AddDbContext<EnviromentalAppDbContext>();
 
 			builder.Services.AddSingleton<SensorsViewModel>();
 			builder.Services.AddTransient<SensorViewModel>();

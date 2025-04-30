@@ -4,11 +4,7 @@
              x:Class="EnviromentalApp.Views.AllSensorsPage"
              Title="Your Sensors"
              NavigatedTo="ContentPage_NavigatedTo">
-    
-    <!-- Add an item to the toolbar -->
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" Command="{Binding NewCommand}" IconImageSource="{FontImage Glyph='+', Color=Black, Size=22}" />
-    </ContentPage.ToolbarItems>
+
     
     <!-- Display notes in a list -->
     <CollectionView x:Name="sensorsCollection"

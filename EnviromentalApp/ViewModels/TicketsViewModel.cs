@@ -17,8 +17,8 @@ public partial class TicketsViewModel : IQueryAttributable
 
     
 
-private TicketsDbContext _context;
-public TicketsViewModel(TicketsDbContext ticketsDbContext)
+private EnviromentalAppDbContext _context;
+public TicketsViewModel(EnviromentalAppDbContext ticketsDbContext)
 {
     _context = ticketsDbContext;
     AllTickets = new ObservableCollection<ViewModels.TicketViewModel>(_context.Tickets.ToList().Select(t => new TicketViewModel(_context, t)));

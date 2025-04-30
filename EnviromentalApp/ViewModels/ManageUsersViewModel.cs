@@ -14,8 +14,8 @@ public partial class ManageUsersViewModel : IQueryAttributable
     public ICommand NewCommand { get; }
     public ICommand SelectUserCommand { get; }
 
-    private UsersDbContext _context;
-    public ManageUsersViewModel(UsersDbContext notesDbContext)
+    private EnviromentalAppDbContext _context;
+    public ManageUsersViewModel(EnviromentalAppDbContext notesDbContext)
     {
 
         _context = notesDbContext;

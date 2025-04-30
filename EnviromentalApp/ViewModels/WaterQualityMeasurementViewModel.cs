@@ -102,14 +102,14 @@ public partial class WaterQualityMeasurementViewModel : ObservableObject, IQuery
         }
     }
 
-    private WaterQualityMeasurementDbContext _context;
+    private EnviromentalAppDbContext _context;
 
-    public WaterQualityMeasurementViewModel(WaterQualityMeasurementDbContext waterQualityMeasurementDbContext)
+    public WaterQualityMeasurementViewModel(EnviromentalAppDbContext waterQualityMeasurementDbContext)
     {
         _context = waterQualityMeasurementDbContext;
         _waterQualityMeasurement = new WaterQualityMeasurement();
     }
-    public WaterQualityMeasurementViewModel(WaterQualityMeasurementDbContext waterQualityMeasurementDbContext, WaterQualityMeasurement waterQualityMeasurement)
+    public WaterQualityMeasurementViewModel(EnviromentalAppDbContext waterQualityMeasurementDbContext, WaterQualityMeasurement waterQualityMeasurement)
     {
         _waterQualityMeasurement = waterQualityMeasurement;
         _context = waterQualityMeasurementDbContext;

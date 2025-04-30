@@ -4,12 +4,20 @@ using Microsoft.Extensions.Configuration;
 using EnviromentalApp.Database.Models;
 
 namespace EnviromentalApp.Database.Data;
-public class WeatherMeasurementDbContext : DbContext
+public class EnviromentalAppDbContext : DbContext
 {
 
-    public WeatherMeasurementDbContext()
+    public EnviromentalAppDbContext()
     { }
-    public WeatherMeasurementDbContext(DbContextOptions<WeatherMeasurementDbContext> options) : base(options) { }
+    public EnviromentalAppDbContext(DbContextOptions<EnviromentalAppDbContext> options) : base(options) { }
+
+    public DbSet<AirQualityMeasurement> AirQualityMeasurements { get; set; }
+    public DbSet<Sensor> Sensors { get; set; }
+
+    public DbSet<Ticket> Tickets { get; set; }
+    public DbSet<User> Users { get; set; }
+
+    public DbSet<WaterQualityMeasurement> WaterQualityMeasurements { get; set; }
 
     public DbSet<WeatherMeasurement> WeatherMeasurements { get; set; }
 

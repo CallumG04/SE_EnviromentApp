@@ -89,16 +89,16 @@ public partial class WeatherMeasurementViewModel : ObservableObject, IQueryAttri
         }
     }
 
-    private WeatherMeasurementDbContext _context;
+    private EnviromentalAppDbContext _context;
 
     
     
-    public WeatherMeasurementViewModel(WeatherMeasurementDbContext weatherMeasurementDbContext)
+    public WeatherMeasurementViewModel(EnviromentalAppDbContext weatherMeasurementDbContext)
     {
         _context = weatherMeasurementDbContext;
         _weatherMeasurement = new WeatherMeasurement();
     }
-    public WeatherMeasurementViewModel(WeatherMeasurementDbContext weatherMeasurementDbContext, WeatherMeasurement weatherMeasurement)
+    public WeatherMeasurementViewModel(EnviromentalAppDbContext weatherMeasurementDbContext, WeatherMeasurement weatherMeasurement)
     {
         _weatherMeasurement = weatherMeasurement;
         _context = weatherMeasurementDbContext;
