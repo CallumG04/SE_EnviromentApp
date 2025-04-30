@@ -64,7 +64,6 @@ EnviromentalApp/bin/
 EnviromentalApp/obj/
 EnviromentalApp.Database/obj/
 EnviromentalApp.Database/bin/
-EnviromentalApp.Database/appsettings.json
 EnviromentalApp.Migrations/obj/
 EnviromentalApp.Migrations/bin/
 .vscode
