@@ -90,8 +90,8 @@
                    FontAttributes="Bold"
                    VerticalOptions="Center"/>
             <Editor x:Name="UsernameEditor"
-                            Placeholder="Enter username"
-                            Text="{Binding Username}"
+                            Placeholder="Enter firmware version"
+                            Text="{Binding firmwareVersion}"
                             HeightRequest="40"
                             WidthRequest="300" />
         </HorizontalStackLayout>
