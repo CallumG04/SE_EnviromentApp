@@ -78,8 +78,8 @@ public partial class AllWeatherMeasurementsViewModel : IQueryAttributable, INoti
     public ICommand NewCommand { get; }
     public ICommand SelectWeatherMeasurementCommand { get; }
 
-private WeatherMeasurementDbContext _context;
-public AllWeatherMeasurementsViewModel(WeatherMeasurementDbContext weatherMeasurementDbContext)
+private EnviromentalAppDbContext _context;
+public AllWeatherMeasurementsViewModel(EnviromentalAppDbContext weatherMeasurementDbContext)
 {
     _context = weatherMeasurementDbContext;
     AllWeatherMeasurements = new ObservableCollection<ViewModels.WeatherMeasurementViewModel>(_context.WeatherMeasurements.ToList().Select(s => new WeatherMeasurementViewModel(_context, s)));

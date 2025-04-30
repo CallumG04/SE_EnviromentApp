@@ -63,16 +63,14 @@ public partial class TicketViewModel : ObservableObject, IQueryAttributable
         }
     }
 
-    private TicketsDbContext _context;
+    private EnviromentalAppDbContext _context;
 
-    
-    
-    public TicketViewModel(TicketsDbContext ticketsDbContext)
+    public TicketViewModel(EnviromentalAppDbContext ticketsDbContext)
     {
         _context = ticketsDbContext;
         _ticket = new Ticket();
     }
-    public TicketViewModel(TicketsDbContext ticketsDbContext, Ticket ticket)
+    public TicketViewModel(EnviromentalAppDbContext ticketsDbContext, Ticket ticket)
     {
         _ticket = ticket;
         _context = ticketsDbContext;

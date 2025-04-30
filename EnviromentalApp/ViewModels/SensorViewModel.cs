@@ -104,14 +104,14 @@ public partial class SensorViewModel : ObservableObject, IQueryAttributable
         }
     }
 
-    private SensorsDbContext _context;
+    private EnviromentalAppDbContext _context;
     
-    public SensorViewModel(SensorsDbContext sensorsDbContext)
+    public SensorViewModel(EnviromentalAppDbContext sensorsDbContext)
     {
         _context = sensorsDbContext;
         _sensor = new Sensor();
     }
-    public SensorViewModel(SensorsDbContext sensorsDbContext, Sensor sensor)
+    public SensorViewModel(EnviromentalAppDbContext sensorsDbContext, Sensor sensor)
     {
         _sensor = sensor;
         _context = sensorsDbContext;

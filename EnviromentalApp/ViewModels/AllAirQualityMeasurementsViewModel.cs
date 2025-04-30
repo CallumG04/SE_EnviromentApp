@@ -78,8 +78,8 @@ public partial class AllAirQualityMeasurementsViewModel : IQueryAttributable, IN
     public ICommand NewCommand { get; }
     public ICommand SelectAirQualityMeasurementCommand { get; }
 
-private AirQualityMeasurementDbContext _context;
-public AllAirQualityMeasurementsViewModel(AirQualityMeasurementDbContext airQualityMeasurementDbContext)
+private EnviromentalAppDbContext _context;
+public AllAirQualityMeasurementsViewModel(EnviromentalAppDbContext airQualityMeasurementDbContext)
 {
     _context = airQualityMeasurementDbContext;
     AllAirQualityMeasurements = new ObservableCollection<ViewModels.AirQualityMeasurementViewModel>(_context.AirQualityMeasurements.ToList().Select(s => new AirQualityMeasurementViewModel(_context, s)));

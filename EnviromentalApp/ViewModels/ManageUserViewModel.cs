@@ -51,14 +51,14 @@ public partial class ManageUserViewModel : ObservableObject, IQueryAttributable
         }
     }
 
-    private UsersDbContext _context;
+    private EnviromentalAppDbContext _context;
     
-    public ManageUserViewModel(UsersDbContext notesDbContext)
+    public ManageUserViewModel(EnviromentalAppDbContext notesDbContext)
     {
         _context = notesDbContext;
         _user = new User();
     }
-    public ManageUserViewModel(UsersDbContext notesDbContext, User user)
+    public ManageUserViewModel(EnviromentalAppDbContext notesDbContext, User user)
     {
         _user = user;
         _context = notesDbContext;

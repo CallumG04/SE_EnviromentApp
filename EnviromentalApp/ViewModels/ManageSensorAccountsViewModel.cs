@@ -14,8 +14,8 @@ public partial class ManageSensorAccountsViewModel : IQueryAttributable
     public ICommand NewCommand { get; }
     public ICommand SelectSensorCommand { get; }
 
-private SensorsDbContext _context;
-public ManageSensorAccountsViewModel(SensorsDbContext sensorsDbContext)
+private EnviromentalAppDbContext _context;
+public ManageSensorAccountsViewModel(EnviromentalAppDbContext sensorsDbContext)
 {
     _context = sensorsDbContext;
     AllSensorAccounts = new ObservableCollection<ViewModels.ManageSensorAccountViewModel>(_context.Sensors.ToList().Select(s => new ManageSensorAccountViewModel(_context, s)));
