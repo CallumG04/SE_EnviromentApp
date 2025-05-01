@@ -65,6 +65,7 @@ public partial class ManageUserViewModel : ObservableObject, IQueryAttributable
     }
 
 
+//save the details of a user
 [RelayCommand]
 private async Task Save()
 {
@@ -72,13 +73,12 @@ private async Task Save()
     {
         _context.Users.Add(_user);
     }
-    //_user.Username = "";
-    //_user.Password = "";
-    //_user.Password = "";
+
     _context.SaveChanges();
     await Shell.Current.GoToAsync($"..?saved={_user.Id}");
 }
 
+    //delete user acccount
     [RelayCommand]
     private async Task Delete()
     {
@@ -87,6 +87,7 @@ private async Task Save()
         await Shell.Current.GoToAsync($"..?deleted={_user.Id}");
     }
 
+    //initaillty load all of the user accounts
     void IQueryAttributable.ApplyQueryAttributes(IDictionary<string, object> query)
     {
         if (query.ContainsKey("load"))
@@ -97,6 +98,7 @@ private async Task Save()
         }
     }
 
+    //reload is called when a user account is saved or deldted
     public void Reload()
     {
         _context.Entry(_user).Reload();

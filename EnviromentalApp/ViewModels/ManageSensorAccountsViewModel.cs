@@ -10,6 +10,7 @@ namespace EnviromentalApp.ViewModels;
 
 public partial class ManageSensorAccountsViewModel : IQueryAttributable
 {
+    //inotailse variabels for the file
     public ObservableCollection<ViewModels.ManageSensorAccountViewModel> AllSensorAccounts { get; }
     public ICommand NewCommand { get; }
     public ICommand SelectSensorCommand { get; }
@@ -18,13 +19,12 @@ private EnviromentalAppDbContext _context;
 public ManageSensorAccountsViewModel(EnviromentalAppDbContext sensorsDbContext)
 {
     _context = sensorsDbContext;
-    AllSensorAccounts = new ObservableCollection<ViewModels.ManageSensorAccountViewModel>(_context.Sensors.ToList().Select(s => new ManageSensorAccountViewModel(_context, s)));
+    AllSensorAccounts = new ObservableCollection<ViewModels.ManageSensorAccountViewModel>(_context.Sensors.ToList().Select(s => new ManageSensorAccountViewModel(_context, s))); //get a list of all sensor accounts
     NewCommand = new AsyncRelayCommand(NewSensorAccountAsync);
-    SelectSensorCommand = new AsyncRelayCommand<ViewModels.ManageSensorAccountViewModel>(sensor => SelectSensorAccountAsync(sensor));
+    SelectSensorCommand = new AsyncRelayCommand<ViewModels.ManageSensorAccountViewModel>(sensor => SelectSensorAccountAsync(sensor)); //select a specific sensor
 
 }
-
-
+    //direcyt to method that creates a new sensor 
     private async Task NewSensorAccountAsync()
     {
         await Shell.Current.GoToAsync(nameof(Views.ManageSensorAccountPage));

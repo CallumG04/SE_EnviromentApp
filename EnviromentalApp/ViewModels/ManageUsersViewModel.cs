@@ -14,14 +14,14 @@ public partial class ManageUsersViewModel : IQueryAttributable
     public ICommand NewCommand { get; }
     public ICommand SelectUserCommand { get; }
 
-    private EnviromentalAppDbContext _context;
+    private EnviromentalAppDbContext _context; //define rhe db context so user accounts can be created, modified and deleted
     public ManageUsersViewModel(EnviromentalAppDbContext notesDbContext)
     {
 
         _context = notesDbContext;
-        AllUsers = new ObservableCollection<ViewModels.ManageUserViewModel>(_context.Users.ToList().Select(n => new ManageUserViewModel(_context, n)));
+        AllUsers = new ObservableCollection<ViewModels.ManageUserViewModel>(_context.Users.ToList().Select(n => new ManageUserViewModel(_context, n))); //create a list of users pulled from Users object
         NewCommand = new AsyncRelayCommand(NewUserAsync);
-        SelectUserCommand = new AsyncRelayCommand<ViewModels.ManageUserViewModel>(user => SelectUserAsync(user));
+        SelectUserCommand = new AsyncRelayCommand<ViewModels.ManageUserViewModel>(user => SelectUserAsync(user)); 
 
     }
 
@@ -44,7 +44,7 @@ void IQueryAttributable.ApplyQueryAttributes(IDictionary<string, object> query)
         ManageUserViewModel matchedUser = AllUsers.Where((u) => u.Id == int.Parse(userId)).FirstOrDefault();
 
 
-        // If note exists, delete it
+        // If user exists, delete it
         if (matchedUser != null)
             AllUsers.Remove(matchedUser);
     }
@@ -54,13 +54,13 @@ void IQueryAttributable.ApplyQueryAttributes(IDictionary<string, object> query)
         ManageUserViewModel matchedUser = AllUsers.Where((u) => u.Id == int.Parse(userId)).FirstOrDefault();
 
 
-        // If note is found, update it
+        // If user is found, update it
         if (matchedUser != null)
         {
             matchedUser.Reload();
             AllUsers.Move(AllUsers.IndexOf(matchedUser), 0);
         }
-        // If note isn't found, it's new; add it.
+        // If user isn't found, it's new; add it.
         else
             AllUsers.Insert(0, new ManageUserViewModel(_context, _context.Users.Single(u => u.Id == int.Parse(userId))));
 

@@ -10,7 +10,7 @@ public partial class TicketViewModel : ObservableObject, IQueryAttributable
 {
     private Ticket _ticket;
     
-
+    //initialise the constructors for setting the fields
     public int ticketId => _ticket.ticketId;
     public int sensorId
     {
@@ -63,7 +63,7 @@ public partial class TicketViewModel : ObservableObject, IQueryAttributable
         }
     }
 
-    private EnviromentalAppDbContext _context;
+    private EnviromentalAppDbContext _context;  //define the db context for establishing a connection to the db
 
     public TicketViewModel(EnviromentalAppDbContext ticketsDbContext)
     {
@@ -77,46 +77,46 @@ public partial class TicketViewModel : ObservableObject, IQueryAttributable
     }
 
 
-[RelayCommand]
-private async Task Save()
-{
-    _ticket.ticketDate = DateTime.Now;
-    if (_ticket.ticketId == 0)
+    //save ticket details
+    [RelayCommand]
+    private async Task Save()
     {
-        _context.Tickets.Add(_ticket);
+        _ticket.ticketDate = DateTime.Now;
+        if (_ticket.ticketId == 0)
+        {
+            _context.Tickets.Add(_ticket);
+        }
+        _context.SaveChanges();
+        await Shell.Current.GoToAsync($"..?saved={_ticket.ticketId}");
     }
-    Console.WriteLine("Sensor ID" + _ticket.sensorId);
-    Console.WriteLine("Sensor Status" + _ticket.Status);
-    Console.WriteLine("Sensor Description" + _ticket.Description);
-    _context.SaveChanges();
-    await Shell.Current.GoToAsync($"..?saved={_ticket.ticketId}");
-}
 
-[RelayCommand]
-private async Task Delete()
-{
-    _ticket.ticketDate = DateTime.Now;
-    _ticket.Status = "Closed";
-    _context.SaveChanges();
-    await Shell.Current.GoToAsync($"..?saved={_ticket.ticketId}");
-}
 
-void IQueryAttributable.ApplyQueryAttributes(IDictionary<string, object> query)
-{
-    if (query.ContainsKey("load"))
+    //if the delete button is pressed delete the ticker with that id
+    [RelayCommand]
+    private async Task Delete()
     {
-        _ticket = _context.Tickets.Single(t => t.ticketId == int.Parse(query["load"].ToString()));
+        _ticket.ticketDate = DateTime.Now;
+        _ticket.Status = "Closed";
+        _context.SaveChanges();
+        await Shell.Current.GoToAsync($"..?saved={_ticket.ticketId}");
+    }
+
+    void IQueryAttributable.ApplyQueryAttributes(IDictionary<string, object> query)
+    {
+        if (query.ContainsKey("load"))
+        {
+            _ticket = _context.Tickets.Single(t => t.ticketId == int.Parse(query["load"].ToString()));
+            RefreshProperties();
+        }
+    }
+
+    public void Reload()
+    {
+        _context.Entry(_ticket).Reload();
         RefreshProperties();
     }
-}
 
-public void Reload()
-{
-    _context.Entry(_ticket).Reload();
-    RefreshProperties();
-}
-
-
+    //if the save or delete button is pressed then reload the page so that it does a new pull from the db so no old ones are shown
     private void RefreshProperties()
     {
         OnPropertyChanged(nameof(Date));

@@ -8,8 +8,9 @@ namespace EnviromentalApp.ViewModels;
 
 public partial class SensorViewModel : ObservableObject, IQueryAttributable
 {
-    private Sensor _sensor;
+    private Sensor _sensor; //initailsei from the construvtorr 
 
+    //set all the fields 
     public int sensorId => _sensor.sensorId;
 
     public DateTime Date => _sensor.Date;
@@ -34,7 +35,7 @@ public partial class SensorViewModel : ObservableObject, IQueryAttributable
             if (_sensor.Position != value)
             {
                 _sensor.Position = value;
-                OnPropertyChanged();
+                OnPropertyChanged(); //if the value has been changed then reassign it
             }
         }
     }
@@ -104,7 +105,7 @@ public partial class SensorViewModel : ObservableObject, IQueryAttributable
         }
     }
 
-    private EnviromentalAppDbContext _context;
+    private EnviromentalAppDbContext _context; //define thr db context
     
     public SensorViewModel(EnviromentalAppDbContext sensorsDbContext)
     {
@@ -118,6 +119,7 @@ public partial class SensorViewModel : ObservableObject, IQueryAttributable
     }
 
 
+//save details of a sensor
 [RelayCommand]
 private async Task Save()
 {
@@ -130,6 +132,7 @@ private async Task Save()
     await Shell.Current.GoToAsync($"..?saved={_sensor.sensorId}");
 }
 
+//delete details fo a sensor
 [RelayCommand]
 private async Task Delete()
 {
@@ -138,6 +141,7 @@ private async Task Delete()
     await Shell.Current.GoToAsync($"..?deleted={_sensor.sensorId}");
 }
 
+//load all sensors initally 
 void IQueryAttributable.ApplyQueryAttributes(IDictionary<string, object> query)
 {
     if (query.ContainsKey("load"))
@@ -146,7 +150,7 @@ void IQueryAttributable.ApplyQueryAttributes(IDictionary<string, object> query)
         RefreshProperties();
     }
 }
-
+//when a sensor is saved or deleted then reload so that it isnt shown anymore
 public void Reload()
 {
     _context.Entry(_sensor).Reload();
