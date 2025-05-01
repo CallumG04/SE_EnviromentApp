@@ -33,11 +33,11 @@ public class TicketViewModelTests : IClassFixture<DatabaseFixture>
     public void Update_UpdatingTicket_ShouldUpdateDatabaseRecord() {
     
         // Arrange
-        var ticket = new Ticket();
-        ticket.Status = "Closed";
+        AllTickets = new ObservableCollection<ViewModels.TicketViewModel>(_fixture.Tickets.ToList().Select(t => new TicketViewModel(_fixture, t)));
+        TicketViewModel matchedTicket = AllTickets.Where((t) => t.ticketId == 1).FirstOrDefault();
             
         // Act
-        _fixture._testDbContext.SaveChanges();
+        matchedTicket.Description = "Update. Needs more calibration";
     
         // Assert
         Assert.NotEqual(ticket.ticketId, 0);
@@ -46,14 +46,14 @@ public class TicketViewModelTests : IClassFixture<DatabaseFixture>
     public void Closing_ClosingTicket_ShouldUpdateNotDelete() {
     
         // Arrange
-        //var ticket = _fixture.Tickets.Single(t => t.ticketId == int.Parse(query["load"].ToString()));
+        AllTickets = new ObservableCollection<ViewModels.TicketViewModel>(_fixture.Tickets.ToList().Select(t => new TicketViewModel(_fixture, t)));
+        TicketViewModel matchedTicket = AllTickets.Where((t) => t.ticketId == 1).FirstOrDefault();
             
         // Act
-        //_fixture._testDbContext.Remove(ticket);
-        //_fixture._testDbContext.SaveChanges();
+        matchedTicket.Status = "Closed";
     
         // Assert
-        //Assert.NotEqual(ticket.ticketId, 0);
+        Assert.NotEqual(ticket.ticketId, 0);
     }
     
 }
