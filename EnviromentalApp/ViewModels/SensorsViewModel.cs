@@ -30,6 +30,7 @@ public SensorsViewModel(EnviromentalAppDbContext sensorsDbContext)
         await Shell.Current.GoToAsync(nameof(Views.SensorPage));
     }
 
+    //select details of a the selected sensor
     private async Task SelectSensorAsync(ViewModels.SensorViewModel sensor)
     {
         if (sensor != null)
@@ -44,7 +45,7 @@ void IQueryAttributable.ApplyQueryAttributes(IDictionary<string, object> query)
         SensorViewModel matchedSensor = AllSensors.Where((s) => s.sensorId == int.Parse(sensorId)).FirstOrDefault();
 
 
-        // If note exists, delete it
+        // If sensor exists, delete it
         if (matchedSensor != null)
             AllSensors.Remove(matchedSensor);
     }
@@ -54,13 +55,13 @@ void IQueryAttributable.ApplyQueryAttributes(IDictionary<string, object> query)
         SensorViewModel matchedSensor = AllSensors.Where((s) => s.sensorId == int.Parse(sensorId)).FirstOrDefault();
 
 
-        // If note is found, update it
+        // If sensor is found, update it
         if (matchedSensor != null)
         {
             matchedSensor.Reload();
             AllSensors.Move(AllSensors.IndexOf(matchedSensor), 0);
         }
-        // If note isn't found, it's new; add it.
+        // If sensor isn't found, it's new; add it.
         else
             AllSensors.Insert(0, new SensorViewModel(_context, _context.Sensors.Single(n => n.sensorId == int.Parse(sensorId))));
 

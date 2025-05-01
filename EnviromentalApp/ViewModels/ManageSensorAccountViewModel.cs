@@ -12,6 +12,7 @@ public partial class ManageSensorAccountViewModel : ObservableObject, IQueryAttr
 
     public int sensorId => _sensor.sensorId;
 
+    //inotailaie all variables / fields for a sensor
     public DateTime Date => _sensor.Date;
     public string Type
     {
@@ -47,7 +48,7 @@ public partial class ManageSensorAccountViewModel : ObservableObject, IQueryAttr
             if (_sensor.Status != value)
             {
                 _sensor.Status = value;
-                OnPropertyChanged();
+                OnPropertyChanged(); //if value ahs been changed then change the value
             }
         }
     }
@@ -103,12 +104,12 @@ public partial class ManageSensorAccountViewModel : ObservableObject, IQueryAttr
         }
     }
 
-    private EnviromentalAppDbContext _context;
+    private EnviromentalAppDbContext _context; //get db context for sensor
     
     public ManageSensorAccountViewModel(EnviromentalAppDbContext sensorsDbContext)
     {
         _context = sensorsDbContext;
-        _sensor = new Sensor();
+        _sensor = new Sensor(); //create aa new sensor 
     }
     public ManageSensorAccountViewModel(EnviromentalAppDbContext sensorsDbContext, Sensor sensor)
     {
@@ -116,7 +117,7 @@ public partial class ManageSensorAccountViewModel : ObservableObject, IQueryAttr
         _context = sensorsDbContext;
     }
 
-
+//save the details of a sensor
 [RelayCommand]
 private async Task Save()
 {
@@ -129,6 +130,7 @@ private async Task Save()
     await Shell.Current.GoToAsync($"..?saved={_sensor.sensorId}");
 }
 
+//delete a sensor
 [RelayCommand]
 private async Task Delete()
 {
@@ -137,6 +139,7 @@ private async Task Delete()
     await Shell.Current.GoToAsync($"..?deleted={_sensor.sensorId}");
 }
 
+//once page has been selected initaillty load list of sensors
 void IQueryAttributable.ApplyQueryAttributes(IDictionary<string, object> query)
 {
     if (query.ContainsKey("load"))

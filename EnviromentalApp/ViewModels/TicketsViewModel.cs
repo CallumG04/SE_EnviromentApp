@@ -17,7 +17,7 @@ public partial class TicketsViewModel : IQueryAttributable
 
     
 
-private EnviromentalAppDbContext _context;
+private EnviromentalAppDbContext _context; //defines the db context so that a tiket can be created, modified / deleted from database 
 public TicketsViewModel(EnviromentalAppDbContext ticketsDbContext)
 {
     _context = ticketsDbContext;
@@ -29,11 +29,13 @@ public TicketsViewModel(EnviromentalAppDbContext ticketsDbContext)
 }
 
 
+    //define the route for creating a new ticket
     private async Task NewTicketAsync()
     {
         await Shell.Current.GoToAsync(nameof(Views.TicketPage));
     }
 
+    //if a user selects a ticket then this will load the ticket details from the db using the ticket id
     private async Task SelectTicketAsync(ViewModels.TicketViewModel ticket)
     {
         if (ticket != null)
@@ -48,7 +50,7 @@ void IQueryAttributable.ApplyQueryAttributes(IDictionary<string, object> query)
         TicketViewModel matchedTicket = AllTickets.Where((t) => t.ticketId == int.Parse(ticketId)).FirstOrDefault();
 
 
-        // If note exists, delete it
+        // If ticket exists, delete it
         if (matchedTicket != null)
             AllTickets.Remove(matchedTicket);
     }
@@ -58,13 +60,13 @@ void IQueryAttributable.ApplyQueryAttributes(IDictionary<string, object> query)
         TicketViewModel matchedTicket = AllTickets.Where((t) => t.ticketId == int.Parse(ticketId)).FirstOrDefault();
 
 
-        // If note is found, update it
+        // If ticket is found, update it
         if (matchedTicket != null)
         {
             matchedTicket.Reload();
             AllTickets.Move(AllTickets.IndexOf(matchedTicket), 0);
         }
-        // If note isn't found, it's new; add it.
+        // If ticket isn't found, it's new; add it.
         else
             AllTickets.Insert(0, new TicketViewModel(_context, _context.Tickets.Single(t => t.ticketId == int.Parse(ticketId))));
 
