@@ -20,6 +20,10 @@
         <Label Text="{Binding AveragePm10, StringFormat='Average PM10: {0:F1} mg/m3'}"
             FontSize="28" />
 
+        <Button Text="Generate Report" Clicked="OnGenerateReportClicked" />
+        <Button Text="Validate Data" Clicked="OnValidateDataClicked" />
+
+
         <CollectionView x:Name="weatherMeasurementsCollection"
                         ItemsSource="{Binding AllWeatherMeasurements}"
                         SelectionMode="Single"
